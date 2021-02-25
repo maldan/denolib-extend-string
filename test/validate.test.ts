@@ -1,7 +1,19 @@
 import { assertEquals } from "https://deno.land/std@0.85.0/testing/asserts.ts";
-import { StringExtend } from "../src/StringExtend.ts";
+import { EString, StringExtend } from "../src/StringExtend.ts";
 
-Deno.test("capitalize", () => {
+Deno.test("validate email", () => {
+    const correct = ["a@a.ru", "text@com.ua.ru", "hi@hi.com"];
+    const inCorrect = ["sdfsdf", "", "23234", "dd@", "@dd.ru"];
+
+    correct.forEach((x) => {
+        assertEquals(EString(x).validate.email(), true);
+    });
+    inCorrect.forEach((x) => {
+        assertEquals(EString(x).validate.email(), false);
+    });
+});
+
+/*Deno.test("capitalize", () => {
     assertEquals(new StringExtend("hello").capitalize, "Hello");
 });
 
@@ -38,4 +50,4 @@ Deno.test("camel to kebab", () => {
 Deno.test("camel to dot", () => {
     assertEquals(new StringExtend("openFile").camelToDot, "open.file");
     assertEquals(new StringExtend("open").camelToDot, "open");
-});
+});*/
