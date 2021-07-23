@@ -18,21 +18,25 @@ Go here - https://doc.deno.land/https/deno.land/x/estring/mod.ts
 ## How to import
 
 ```ts
-import { EString } from "https://deno.land/x/estring@1.0.0/mod.ts";
+import { EString } from "https://deno.land/x/estring@2.0.0/mod.ts";
 ```
 
 ## Function list
 
--   capitalize
--   isValidEmail
--   htmlSpecialChars
+### Transform
+
+-   caseStyle
+
+### Validate
+
+-   email
 
 ## Example
 
 ```ts
-EString("hello").capitalize; // Hello
-EString("hello").isValidEmail; // false
-EString("dd@dd.ru").isValidEmail; // true
+EString("hello").transform.capitalize(); // Hello
+EString("hello").validate.email(); // false
+EString("dd@dd.ru").validate.email(); // true
 ```
 
 ### Have a question/suggestion/bug report?
